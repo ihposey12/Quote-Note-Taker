@@ -8,6 +8,7 @@ class Sidebar extends Component {
         <NoteList 
         notes={this.props.notes} 
         handleClick={this.props.handleClick}
+        // selectedNote={this.props.selectedNote}
         />
         
         <button>New</button>

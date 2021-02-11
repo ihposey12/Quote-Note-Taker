@@ -17,9 +17,7 @@ class App extends Component {
     .then(notes => this.setState({notes: notes}))
   }
 
-  handleNoteClick = (notes) => {
-    this.setState({selectedNote: notes.note})
-  }
+  handleNoteClick = (note) => this.setState({selectedNote: note})
 
 
   render() {
@@ -29,7 +27,7 @@ class App extends Component {
         <NoteContainer 
         notes={this.state.notes} 
         handleClick={this.handleNoteClick}
-        selectedNoteContent={this.state.selectedNote}
+        selectedNote={this.state.selectedNote}
         />
       </div>
     );

@@ -15,7 +15,7 @@ class NoteContainer extends Component {
           />
 
           <Content 
-          selectedNoteContent={this.props.selectedNoteContent}
+          selectedNote={this.props.selectedNote}
           />
         </div>
       </Fragment>
