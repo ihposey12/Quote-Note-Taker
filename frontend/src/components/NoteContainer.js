@@ -10,12 +10,16 @@ class NoteContainer extends Component {
         <Search />
         <div className='container'>
           <Sidebar 
-          notes={this.props.notes} 
-          handleClick={this.props.handleClick}
+            notes={this.props.notes} 
+            handleClick={this.props.handleClick}
           />
 
           <Content 
-          selectedNote={this.props.selectedNote}
+            selectedNote={this.props.selectedNote}
+            noteEdit={this.props.noteEdit}
+            editIt={this.props.editIt}
+            editMeChange={this.props.editMeChange}
+            handleSaveClick={this.props.handleSaveClick}
           />
         </div>
       </Fragment>
