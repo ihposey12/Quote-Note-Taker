@@ -9,11 +9,12 @@ class NoteContainer extends Component {
       <Fragment>
         <Search />
         <div className='container'>
+
           <Sidebar 
             notes={this.props.notes} 
             handleClick={this.props.handleClick}
             handleCancel={this.props.handleCancel}
-            createNewNote={this.props.createNewNote}
+            postNote={this.props.postNote}
           />
 
           <Content 
@@ -24,6 +25,7 @@ class NoteContainer extends Component {
             handleSaveClick={this.props.handleSaveClick}
             handleCancel={this.props.handleCancel}
           />
+          
         </div>
       </Fragment>
     );

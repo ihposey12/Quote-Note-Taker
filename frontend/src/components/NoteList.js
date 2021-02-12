@@ -5,9 +5,9 @@ const NoteList = (props) => {
   return (
     <ul onClick={() => props.handleCancel()}>
       {props.notes.map(note => <NoteItem 
-      key={note.id} 
-      note={note} 
-      handleClick={props.handleClick}
+        key={note.id} 
+        note={note} 
+        handleClick={props.handleClick}
       />
       )}
     </ul>

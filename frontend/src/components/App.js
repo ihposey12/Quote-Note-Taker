@@ -68,16 +68,21 @@ class App extends Component {
 //
 
 //POST A NOTE
-  postNote = (noteURL, note) => {
+  postNote = (e) => {
+    e.preventDefault()
     fetch(noteURL, {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
         'Accept' : 'application/json'
       },
-      body: JSON.stringify(note)
+      body: JSON.stringify({
+        title: 'default',
+        body: 'default',
+        id: 1
+      })
     })
-    .then(res => res.json())
+    .then(res => {this.componentDidMount()})
   }
 //
 
@@ -87,15 +92,15 @@ class App extends Component {
         <Header />
 
         <NoteContainer 
-        notes={this.state.notes} 
-        handleClick={this.handleNoteClick}
-        selectedNote={this.state.selectedNote}
-        noteEdit={this.handleNoteEdit}
-        editIt={this.state.editNote}
-        editMeChange={this.editMeChange}
-        handleSaveClick={this.handleSaveClick}
-        handleCancel={this.handleCancel}
-        createNewNote={this.createNewNote}
+          notes={this.state.notes} 
+          handleClick={this.handleNoteClick}
+          selectedNote={this.state.selectedNote}
+          noteEdit={this.handleNoteEdit}
+          editIt={this.state.editNote}
+          editMeChange={this.editMeChange}
+          handleSaveClick={this.handleSaveClick}
+          handleCancel={this.handleCancel}
+          postNote={this.postNote}
         />
       </div>
     );
