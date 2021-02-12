@@ -132,11 +132,13 @@ div.sidebar ul li:hover {
   margin: 10px 0px;
   padding: 20px;
   border: 2px dashed grey;
+  height: 50vh;
 }
 
 .sidebar {
   width:25%;
   overflow: scroll;
+  height: 75vh;
 }
 
 .detail {

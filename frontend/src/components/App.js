@@ -25,14 +25,16 @@ class App extends Component {
 //SAVE BTN PATCH
   handleSaveClick = (selectedNote, e) => {
     e.preventDefault()
-    fetch(`http://localhost:3000/api/v1/notes/${selectedNote.id}`, {
+    fetch(`http://localhost:3000/api/v1/notes/${selectedNote.note.id}`, {
       method: "PATCH",
       headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify(selectedNote)
+      body: JSON.stringify(selectedNote.note)
     })
       .then(res => res.json())
-      .then(note => {
-        console.log('it works')
+      .then(freshNote => {
+        this.setState(prevState => {
+          return {notes: prevState.notes.map(oldNote => oldNote.id === freshNote.id ? freshNote : oldNote)}
+        })
       })
   }
 //
@@ -57,6 +59,28 @@ class App extends Component {
   }
 //
 
+//CANCEL BTN
+  handleCancel = () => {
+    this.setState({
+      editNote: false
+    })
+  }
+//
+
+//POST A NOTE
+  postNote = (noteURL, note) => {
+    fetch(noteURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json'
+      },
+      body: JSON.stringify(note)
+    })
+    .then(res => res.json())
+  }
+//
+
   render() {
     return (
       <div className="app">
@@ -70,6 +94,8 @@ class App extends Component {
         editIt={this.state.editNote}
         editMeChange={this.editMeChange}
         handleSaveClick={this.handleSaveClick}
+        handleCancel={this.handleCancel}
+        createNewNote={this.createNewNote}
         />
       </div>
     );

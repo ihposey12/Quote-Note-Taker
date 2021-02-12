@@ -8,7 +8,7 @@ const NoteItem = (props) => (
 );
 
 let truncate = (str) => {
-  return str.length > 10 ? str.substring(1, 10) + "..." : str
+  return str.length > 10 ? str.substring(0, 10) + "..." : str
 }
 
 export default NoteItem;

@@ -12,6 +12,8 @@ class NoteContainer extends Component {
           <Sidebar 
             notes={this.props.notes} 
             handleClick={this.props.handleClick}
+            handleCancel={this.props.handleCancel}
+            createNewNote={this.props.createNewNote}
           />
 
           <Content 
@@ -20,6 +22,7 @@ class NoteContainer extends Component {
             editIt={this.props.editIt}
             editMeChange={this.props.editMeChange}
             handleSaveClick={this.props.handleSaveClick}
+            handleCancel={this.props.handleCancel}
           />
         </div>
       </Fragment>
