@@ -73,33 +73,33 @@ Look at the gif below to see how the app should look and behave. These are the b
 
 **Viewing and Displaying Notes**
 
-- [ ] Display all notes in the left sidebar.
-- [ ] Displayed sidebar notes should show the title and a truncated body.
-- [ ] When clicking a note from the sidebar, display its contents in the right panel.
+- [x] Display all notes in the left sidebar.
+- [x] Displayed sidebar notes should show the title and a truncated body.
+- [x] When clicking a note from the sidebar, display its contents in the right panel.
 
 ![result](react-evernote-display.gif)
 
 **Editing Notes**
 
-- [ ] When displaying a note in the right panel, show an `Edit` button.
-- [ ] Clicking the `Edit` button will allow the user to edit the title and body in the right panel.
-- [ ] When in edit mode, also show a `Save` button which saves the note via a `PATCH` request.
-- [ ] When in edit mode, also show a `Cancel` button which discards any changes and reverts back to displaying the note.
-- [ ] Clicking a different note while in edit mode should discard your changes and display the new note instead.
+- [x] When displaying a note in the right panel, show an `Edit` button.
+- [x] Clicking the `Edit` button will allow the user to edit the title and body in the right panel.
+- [x] When in edit mode, also show a `Save` button which saves the note via a `PATCH` request.
+- [x] When in edit mode, also show a `Cancel` button which discards any changes and reverts back to displaying the note.
+- [x] Clicking a different note while in edit mode should discard your changes and display the new note instead.
 
 ![result](react-evernote-edit.gif)
 
 **Creating Notes**
 
-- [ ] At the bottom of your left sidebar, show a `New` button.
-- [ ] Clicking `New` will create a new note via a `POST` request with some default title and body.
-- [ ] This new note should appear in the sidebar.
+- [x] At the bottom of your left sidebar, show a `New` button.
+- [x] Clicking `New` will create a new note via a `POST` request with some default title and body.
+- [x] This new note should appear in the sidebar.
 
 ![result](react-evernote-create.gif)
 
 **Filtering Notes**
 
-- [ ] Implement the filter to search through your notes list by title.
+- [] Implement the filter to search through your notes list by title.
 
 ![result](react-evernote-filter.gif)
 
