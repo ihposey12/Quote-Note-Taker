@@ -7,7 +7,7 @@ class Sidebar extends Component {
       <div className='master-detail-element sidebar'>
         <NoteList 
           notes={this.props.notes} 
-          handleClick={this.props.handleClick}
+          handleNoteClick={this.props.handleNoteClick}
           handleCancel={this.props.handleCancel}
         />
         

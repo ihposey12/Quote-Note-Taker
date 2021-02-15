@@ -12,6 +12,7 @@
 body {
   margin: 0;
   padding: 0;
+  background: lightgray;
 }
 
 
@@ -29,14 +30,14 @@ p.instructions {
 .note-editor input[name="title"] {
   font-size: 24px;
   font-weight: 700;
-  border: 1px dashed grey;
+  border: 1px solid grey;
   margin: 0.5em 0;
   box-sizing: border-box;
 }
 
 .note-editor textarea {
   font-size: 1em;
-  border: 1px dashed grey;
+  border: 1px solid grey;
   box-sizing: border-box;
   resize: none;
 }
@@ -67,13 +68,13 @@ p.instructions {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 2px dashed grey;
+  border: 2px grey;
 }
 
 input {
   font-size: 24px;
   height: 40px;
-  width: 100%;
+  width: 50%;
   border: none;
 }
 
@@ -105,8 +106,8 @@ div.sidebar ul li:first-child {
 }
 
 div.sidebar ul li:hover {
-  /* background-color: yellow; */
-  background-image: linear-gradient(#E6E6E6, #F7F7F7);
+  background-color: lightcoral;
+  /* background-image: linear-gradient(#E6E6E6, #F7F7F7); */
   background-repeat: no-repeat;
 }
 
@@ -131,7 +132,7 @@ div.sidebar ul li:hover {
   float:left;
   margin: 10px 0px;
   padding: 20px;
-  border: 2px dashed grey;
+  border: 2px solid grey;
   height: 50vh;
 }
 
