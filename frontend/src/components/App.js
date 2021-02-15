@@ -34,7 +34,7 @@ class App extends Component {
       .then(res => res.json())
       .then(freshNote => {
         this.setState(prevState => {
-          return {notes: prevState.notes.map(oldNote => oldNote.id === freshNote.id ? freshNote : oldNote)}
+          return {filterNote: prevState.filterNote.map(oldNote => oldNote.id === freshNote.id ? freshNote : oldNote)}
         })
       })
   }
@@ -110,10 +110,10 @@ class App extends Component {
 
         <NoteContainer 
           notes={this.state.filterNote} 
-          handleClick={this.handleNoteClick}
+          handleNoteClick={this.handleNoteClick}
           selectedNote={this.state.selectedNote}
-          noteEdit={this.handleNoteEdit}
-          editIt={this.state.editNote}
+          handleNoteEdit={this.handleNoteEdit}
+          editNote={this.state.editNote}
           editMeChange={this.editMeChange}
           handleSaveClick={this.handleSaveClick}
           handleCancel={this.handleCancel}

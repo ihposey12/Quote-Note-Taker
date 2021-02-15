@@ -7,7 +7,7 @@ const NoteList = (props) => {
       {props.notes.map(note => <NoteItem 
         key={note.id} 
         note={note} 
-        handleClick={props.handleClick}
+        handleNoteClick={props.handleNoteClick}
       />
       )}
     </ul>

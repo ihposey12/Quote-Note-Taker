@@ -14,15 +14,15 @@ class NoteContainer extends Component {
 
           <Sidebar 
             notes={this.props.notes} 
-            handleClick={this.props.handleClick}
+            handleNoteClick={this.props.handleNoteClick}
             handleCancel={this.props.handleCancel}
             postNote={this.props.postNote}
           />
 
           <Content 
             selectedNote={this.props.selectedNote}
-            noteEdit={this.props.noteEdit}
-            editIt={this.props.editIt}
+            handleNoteEdit={this.props.handleNoteEdit}
+            editNote={this.props.editNote}
             editMeChange={this.props.editMeChange}
             handleSaveClick={this.props.handleSaveClick}
             handleCancel={this.props.handleCancel}

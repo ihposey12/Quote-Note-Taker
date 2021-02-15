@@ -12,7 +12,7 @@ import Instructions from './Instructions';
 */
 class Content extends Component {
   renderContent = () => {
-    if (this.props.editIt) {
+    if (this.props.editNote === true) {
       return <NoteEditor 
         note={this.props.selectedNote}
         editMeChange={this.props.editMeChange}
@@ -22,7 +22,8 @@ class Content extends Component {
     } else if (this.props.selectedNote.body) {
       return <NoteViewer 
         note={this.props.selectedNote}
-        noteEdit={this.props.noteEdit}
+        handleNoteEdit={this.props.handleNoteEdit}
+        handleNoteClick={this.props.handleNoteClick}
       />;
     } else {
       return <Instructions />;
