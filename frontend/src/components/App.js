@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     notes: [],
     selectedNote: {},
-    editNote: false
+    editNote: false,
+    filterNote: []
   }
 //
 
@@ -18,7 +19,7 @@ class App extends Component {
   componentDidMount = () => {
     fetch(noteURL)
     .then(res => res.json())
-    .then(notes => this.setState({notes: notes}))
+    .then(notes => this.setState({notes: notes, filterNote: notes}))
   }
 //
 
@@ -86,13 +87,29 @@ class App extends Component {
   }
 //
 
+//NOTE SEARCH/FILTER
+  handleNoteSearch = (e) => {
+    let noteArr = []
+    for(let i = 0; i < this.state.notes.length; i++){
+      let note = this.state.notes[i].title
+      let searchANote = this.state.notes[i]
+      if(note.includes(e.target.value)) {
+        noteArr.push(searchANote)
+      }
+    }
+    this.setState({
+      filterNote: noteArr
+    })
+  }
+//
+
   render() {
     return (
       <div className="app">
         <Header />
 
         <NoteContainer 
-          notes={this.state.notes} 
+          notes={this.state.filterNote} 
           handleClick={this.handleNoteClick}
           selectedNote={this.state.selectedNote}
           noteEdit={this.handleNoteEdit}
@@ -101,6 +118,7 @@ class App extends Component {
           handleSaveClick={this.handleSaveClick}
           handleCancel={this.handleCancel}
           postNote={this.postNote}
+          handleNoteSearch={this.handleNoteSearch}
         />
       </div>
     );

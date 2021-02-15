@@ -9,7 +9,6 @@ class Sidebar extends Component {
           notes={this.props.notes} 
           handleClick={this.props.handleClick}
           handleCancel={this.props.handleCancel}
-          // postNote={this.props.postNote}
         />
         
         <button onClick={(e) => this.props.postNote(e)}>New</button>
