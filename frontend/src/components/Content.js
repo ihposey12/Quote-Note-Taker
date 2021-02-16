@@ -20,10 +20,12 @@ class Content extends Component {
         handleCancel={this.props.handleCancel}
       />; 
     } else if (this.props.selectedNote.body) {
+
       return <NoteViewer 
         note={this.props.selectedNote}
         handleNoteEdit={this.props.handleNoteEdit}
         handleNoteClick={this.props.handleNoteClick}
+        handleDelete={this.props.handleDelete}
       />;
     } else {
       return <Instructions />;

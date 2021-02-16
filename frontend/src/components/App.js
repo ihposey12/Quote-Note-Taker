@@ -40,6 +40,18 @@ class App extends Component {
   }
 //
 
+//DELETE
+  handleDelete = (props) => {
+    fetch(`http://localhost:3000/api/v1/notes/${props.note.id}`, {
+      method: 'DELETE'
+    })
+    .then(() => this.setState(prevState => {
+      let leftOverNotes = prevState.filterNote.filter(note => note.id !== props.note.id)
+      return {filterNote: leftOverNotes, selectedNote: {}}
+    }))
+  }
+//
+
 //CLICK/DISPLAY NOTE
   handleNoteClick = (note) => this.setState({selectedNote: note})
 //
@@ -119,6 +131,7 @@ class App extends Component {
           handleCancel={this.handleCancel}
           postNote={this.postNote}
           handleNoteSearch={this.handleNoteSearch}
+          handleDelete={this.handleDelete}
         />
       </div>
     );

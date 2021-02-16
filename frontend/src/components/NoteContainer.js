@@ -26,6 +26,7 @@ class NoteContainer extends Component {
             editMeChange={this.props.editMeChange}
             handleSaveClick={this.props.handleSaveClick}
             handleCancel={this.props.handleCancel}
+            handleDelete={this.props.handleDelete}
           />
           
         </div>
