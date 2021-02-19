@@ -12,22 +12,23 @@ class NoteContainer extends Component {
         />
           <div className='container'>
 
-          <Sidebar 
-            notes={this.props.notes} 
-            handleNoteClick={this.props.handleNoteClick}
-            handleCancel={this.props.handleCancel}
-            postNote={this.props.postNote}
-          />
+            <Sidebar 
+              notes={this.props.notes} 
+              handleNoteClick={this.props.handleNoteClick}
+              handleCancel={this.props.handleCancel}
+              postNote={this.props.postNote}
+            />
 
-          <Content 
-            selectedNote={this.props.selectedNote}
-            handleNoteEdit={this.props.handleNoteEdit}
-            editNote={this.props.editNote}
-            editMeChange={this.props.editMeChange}
-            handleSaveClick={this.props.handleSaveClick}
-            handleCancel={this.props.handleCancel}
-            handleDelete={this.props.handleDelete}
-          />
+            <Content 
+              selectedNote={this.props.selectedNote}
+              handleNoteEdit={this.props.handleNoteEdit}
+              editNote={this.props.editNote}
+              editMeChange={this.props.editMeChange}
+              handleSaveClick={this.props.handleSaveClick}
+              handleCancel={this.props.handleCancel}
+              handleDelete={this.props.handleDelete}
+              saveTheNote={this.props.saveTheNote}
+            />
           
         </div>
       </Fragment>

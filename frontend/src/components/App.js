@@ -15,6 +15,12 @@ class App extends Component {
   }
 //
 
+  saveTheNote = (freshNote) => {
+    this.setState(prevState => {
+      debugger
+    })
+  }
+
 //MOUNT ALL NOTES
   componentDidMount = () => {
     fetch(noteURL)
@@ -117,23 +123,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Header />
+        <div className="app">
+          <Header />
 
-        <NoteContainer 
-          notes={this.state.filterNote} 
-          handleNoteClick={this.handleNoteClick}
-          selectedNote={this.state.selectedNote}
-          handleNoteEdit={this.handleNoteEdit}
-          editNote={this.state.editNote}
-          editMeChange={this.editMeChange}
-          handleSaveClick={this.handleSaveClick}
-          handleCancel={this.handleCancel}
-          postNote={this.postNote}
-          handleNoteSearch={this.handleNoteSearch}
-          handleDelete={this.handleDelete}
-        />
-      </div>
+          <NoteContainer 
+            notes={this.state.filterNote} 
+            handleNoteClick={this.handleNoteClick}
+            selectedNote={this.state.selectedNote}
+            handleNoteEdit={this.handleNoteEdit}
+            editNote={this.state.editNote}
+            editMeChange={this.editMeChange}
+            handleSaveClick={this.handleSaveClick}
+            handleCancel={this.handleCancel}
+            postNote={this.postNote}
+            handleNoteSearch={this.handleNoteSearch}
+            handleDelete={this.handleDelete}
+            saveTheNote={this.saveTheNote}
+          />
+        </div>
     );
   }
 }

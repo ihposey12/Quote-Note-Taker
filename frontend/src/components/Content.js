@@ -18,6 +18,7 @@ class Content extends Component {
         editMeChange={this.props.editMeChange}
         handleSaveClick={this.props.handleSaveClick}
         handleCancel={this.props.handleCancel}
+        saveTheNote={this.props.saveTheNote}
       />; 
     } else if (this.props.selectedNote.body) {
 
