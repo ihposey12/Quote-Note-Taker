@@ -155,24 +155,24 @@ class App extends Component {
 
   render() {
     return (
-        <div className="app">
-          <Header />
+      <div className="app">
+        <Header />
 
-          <NoteContainer 
-            notes={this.filterThrough()}
-            searchState={this.searchState}
-            handleNoteClick={this.handleNoteClick}
-            selectedNote={this.state.selectedNote}
-            handleNoteEdit={this.handleNoteEdit}
-            editNote={this.state.editNote}
-            // editMeChange={this.editMeChange}
-            // handleSaveClick={this.handleSaveClick}
-            handleCancel={this.handleCancel}
-            postNote={this.postNote}
-            handleDelete={this.handleDelete}
-            saveTheNote={this.saveTheNote}
-          />
-        </div>
+        <NoteContainer 
+          notes={this.filterThrough()}
+          searchState={this.searchState}
+          handleNoteClick={this.handleNoteClick}
+          selectedNote={this.state.selectedNote}
+          handleNoteEdit={this.handleNoteEdit}
+          editNote={this.state.editNote}
+          // editMeChange={this.editMeChange}
+          // handleSaveClick={this.handleSaveClick}
+          handleCancel={this.handleCancel}
+          postNote={this.postNote}
+          handleDelete={this.handleDelete}
+          saveTheNote={this.saveTheNote}
+        />
+      </div>
     );
   }
 }

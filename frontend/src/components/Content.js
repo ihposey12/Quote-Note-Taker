@@ -15,8 +15,8 @@ class Content extends Component {
     if (this.props.editNote === true) {
       return <NoteEditor 
         note={this.props.selectedNote}
-        editMeChange={this.props.editMeChange}
-        handleSaveClick={this.props.handleSaveClick}
+        // editMeChange={this.props.editMeChange}
+        // handleSaveClick={this.props.handleSaveClick}
         handleCancel={this.props.handleCancel}
         saveTheNote={this.props.saveTheNote}
       />; 

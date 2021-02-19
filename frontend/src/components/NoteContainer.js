@@ -23,8 +23,8 @@ class NoteContainer extends Component {
               selectedNote={this.props.selectedNote}
               handleNoteEdit={this.props.handleNoteEdit}
               editNote={this.props.editNote}
-              editMeChange={this.props.editMeChange}
-              handleSaveClick={this.props.handleSaveClick}
+              // editMeChange={this.props.editMeChange}
+              // handleSaveClick={this.props.handleSaveClick}
               handleCancel={this.props.handleCancel}
               handleDelete={this.props.handleDelete}
               saveTheNote={this.props.saveTheNote}
