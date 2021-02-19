@@ -8,6 +8,7 @@ const NoteList = (props) => {
         key={note.id} 
         note={note} 
         handleNoteClick={props.handleNoteClick}
+        handleNoteSearch={props.handleNoteSearch}
       />
       )}
     </ul>

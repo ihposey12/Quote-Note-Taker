@@ -8,7 +8,7 @@ class NoteContainer extends Component {
     return (
       <Fragment>
         <Search 
-          handleNoteSearch={this.props.handleNoteSearch}
+          searchState={this.props.searchState}
         />
           <div className='container'>
 

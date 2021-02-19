@@ -11,13 +11,18 @@ class App extends Component {
     notes: [],
     selectedNote: {},
     editNote: false,
-    filterNote: []
+    // filterNote: []
+    searchBar: ''
   }
 //
 
   saveTheNote = (freshNote) => {
+    let i = this.state.notes.findIndex((theNote) => theNote.id === freshNote.id)
     this.setState(prevState => {
-      debugger
+      // return {notes: [...prevState.notes].map(note => note.id === freshNote.id ? freshNote : note)}
+      let oldNotes = [...prevState.notes]
+      oldNotes[i] = freshNote
+      return {notes: oldNotes, selectedNote: freshNote}
     })
   }
 
@@ -25,25 +30,25 @@ class App extends Component {
   componentDidMount = () => {
     fetch(noteURL)
     .then(res => res.json())
-    .then(notes => this.setState({notes: notes, filterNote: notes}))
+    .then(notes => this.setState({notes: notes}))
   }
 //
 
 //SAVE BTN PATCH
-  handleSaveClick = (selectedNote, e) => {
-    e.preventDefault()
-    fetch(`http://localhost:3000/api/v1/notes/${selectedNote.note.id}`, {
-      method: "PATCH",
-      headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify(selectedNote.note)
-    })
-      .then(res => res.json())
-      .then(freshNote => {
-        this.setState(prevState => {
-          return {filterNote: prevState.filterNote.map(oldNote => oldNote.id === freshNote.id ? freshNote : oldNote)}
-        })
-      })
-  }
+  // handleSaveClick = (selectedNote, e) => {
+  //   e.preventDefault()
+  //   fetch(`http://localhost:3000/api/v1/notes/${selectedNote.note.id}`, {
+  //     method: "PATCH",
+  //     headers: {'Content-Type' : 'application/json'},
+  //     body: JSON.stringify(selectedNote.note)
+  //   })
+  //     .then(res => res.json())
+  //     .then(freshNote => {
+  //       this.setState(prevState => {
+  //         return {notes: prevState.notes.map(oldNote => oldNote.id === freshNote.id ? freshNote : oldNote)}
+  //       })
+  //     })
+  // }
 //
 
 //DELETE
@@ -52,8 +57,8 @@ class App extends Component {
       method: 'DELETE'
     })
     .then(() => this.setState(prevState => {
-      let leftOverNotes = prevState.filterNote.filter(note => note.id !== props.note.id)
-      return {filterNote: leftOverNotes, selectedNote: {}}
+      let leftOverNotes = prevState.notes.filter(note => note.id !== props.note.id)
+      return {notes: leftOverNotes, selectedNote: {}}
     }))
   }
 //
@@ -67,15 +72,16 @@ class App extends Component {
     this.setState({editNote: true})
   }
 
-  editMeChange = (e) => {
-    e.persist()
-    this.setState(prevState => ({
-      selectedNote: {
-        ...prevState.selectedNote,
-        [e.target.name]: e.target.value
-      }
-    }))
-  }
+  // editMeChange = (e) => {
+  //   debugger
+  //   e.persist()
+  //   this.setState(prevState => ({
+  //     selectedNote: {
+  //       ...prevState.selectedNote,
+  //       [e.target.name]: e.target.value
+  //     }
+  //   }))
+  // }
 //
 
 //CANCEL BTN
@@ -101,25 +107,51 @@ class App extends Component {
         id: 1
       })
     })
-    .then(res => {this.componentDidMount()})
+    .then(res => res.json())
+    .then(note => {
+      this.setState(prevState => {
+        return {notes: [...prevState.notes, note]}
+      })
+    })
   }
 //
 
 //NOTE SEARCH/FILTER
-  handleNoteSearch = (e) => {
-    let noteArr = []
-    for(let i = 0; i < this.state.notes.length; i++){
-      let note = this.state.notes[i].title
-      let searchANote = this.state.notes[i]
-      if(note.includes(e.target.value)) {
-        noteArr.push(searchANote)
-      }
-    }
+  // handleNoteSearch = (e) => {
+  //   let noteArr = []
+  //   for(let i = 0; i < this.state.notes.length; i++){
+  //     let note = this.state.notes[i].title
+  //     let searchANote = this.state.notes[i]
+  //     if(note.includes(e.target.value)) {
+  //       noteArr.push(searchANote)
+  //     }
+  //   }
+  //   this.setState({
+  //     notes: noteArr
+  //   })
+  // }
+
+  searchState = (e) => {
     this.setState({
-      filterNote: noteArr
+      searchBar: e.target.value
     })
   }
+
+  handleNoteSearch = () => {
+    if(this.state.searchBar.length > 0) {
+      return [...this.state.notes].filter(note => note.title.toLowerCase().includes(this.state.searchBar.toLowerCase()))
+    }
+    return (this.state.notes)
+  }
 //
+
+  filterThrough =()=>{
+    if (this.state.searchBar.length > 0) {
+       return this.handleNoteSearch()
+    } else {
+       return this.state.notes
+    }
+  }
 
   render() {
     return (
@@ -127,16 +159,16 @@ class App extends Component {
           <Header />
 
           <NoteContainer 
-            notes={this.state.filterNote} 
+            notes={this.filterThrough()}
+            searchState={this.searchState}
             handleNoteClick={this.handleNoteClick}
             selectedNote={this.state.selectedNote}
             handleNoteEdit={this.handleNoteEdit}
             editNote={this.state.editNote}
-            editMeChange={this.editMeChange}
-            handleSaveClick={this.handleSaveClick}
+            // editMeChange={this.editMeChange}
+            // handleSaveClick={this.handleSaveClick}
             handleCancel={this.handleCancel}
             postNote={this.postNote}
-            handleNoteSearch={this.handleNoteSearch}
             handleDelete={this.handleDelete}
             saveTheNote={this.saveTheNote}
           />

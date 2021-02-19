@@ -4,7 +4,7 @@ const Search = (props) => {
   return (
     <div className="filter">
       <input
-        onChange={props.handleNoteSearch}
+        onChange={props.searchState}
         id="search-bar"
         type="text"
         placeholder="Search Notes"
